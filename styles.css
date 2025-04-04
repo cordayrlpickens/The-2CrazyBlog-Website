@@ -1,0 +1,81 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('https://static1.straitstimes.com.sg/s3fs-public/articles/2017/11/21/lighting02.jpg?VersionId=Qwv0No6zhzoo1fg79seSdSNTSP2e0aFc');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.form-container {
+    background-color: black; /* Solid black background */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+    width: 400px;
+    color: white;
+}
+
+h1 {
+    font-family: 'Burbank Big Condensed Bold', sans-serif; /* Burbank Big Condensed Bold font */
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.2); /* Transparent white */
+    color: white;
+    outline: none;
+}
+
+button {
+    padding: 10px;
+    background-color: #3498db; /* Blue color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+p {
+    margin-top: 20px;
+    color: white;
+}
+
+span {
+    color: #3498db;
+    cursor: pointer;
+}
+
+span:hover {
+    text-decoration: underline;
+}

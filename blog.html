@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 2Crazy Blog</title>
+    <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js"></script>
+</head>
+<body>
+    <h1>Welcome to The 2Crazy Blog</h1>
+    <button onclick="logout()">Logout</button>
+    <div id="posts"></div> <!-- Display blog posts here -->
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBGwHSXSox6hSbrBQdm60vwY37r69aWKik",
+            authDomain: "the-2crazy-blog.firebaseapp.com",
+            projectId: "the-2crazy-blog",
+            storageBucket: "the-2crazy-blog.firebasestorage.app",
+            messagingSenderId: "423860344499",
+            appId: "1:423860344499:web:cbb06e74fbf8a1837f02c6",
+            measurementId: "G-JBPVRF5XH2"
+        };
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const firestore = firebase.firestore();
+
+        // Check if user is logged in
+        auth.onAuthStateChanged(user => {
+            if (!user) {
+                window.location.href = "index.html"; // Redirect to login if not logged in
+            } else {
+                loadPosts();
+            }
+        });
+
+        // Logout Functionality
+        function logout() {
+            auth.signOut().then(() => {
+                window.location.href = "index.html"; // Redirect to login on logout
+            });
+        }
+
+        // Load Posts
+        function loadPosts() {
+            firestore.collection("posts").get().then((querySnapshot) => {
+                querySnapshot.forEach(doc => {
+                    const post = doc.data();
+                    const postElement = document.createElement("div");
+                    postElement.textContent = post.content;
+                    document.getElementById('posts').appendChild(postElement);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
